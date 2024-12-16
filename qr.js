@@ -13,20 +13,22 @@ const fs = require("fs-extra");
 const { Boom } = require("@hapi/boom");
 
 const MESSAGE = process.env.MESSAGE ||  `
-*SESSION GENERATED SUCCESSFULY* ✅
+*🎉 SESSION GENERATED SUCCESSFULLY! ✅*
 
-*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 🌟
-https://github.com/GuhailTechInfo/ULTRA-MD
+*💪 Empowering Your Experience with Silva MD Bot*
 
-*Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ ꜰᴏʀ ϙᴜᴇʀʏ* 💭
-https://t.me/GlobalBotInc
-https://whatsapp.com/channel/0029VagJIAr3bbVBCpEkAM07
+*🌟 Show your support by giving our repo a star! 🌟*
+🔗 https://github.com/SilvaTechB/silva-md-bot
 
+*💭 Need help? Join our support groups:*
+📢 💬
+https://whatsapp.com/channel/0029VaAkETLLY6d8qhLmZt2v
 
-*Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🪄 
-https://youtube.com/GlobalTechInfo
+*📚 Learn & Explore More with Tutorials:*
+🪄 YouTube Channel https://www.youtube.com/@silvaedits254
 
-*ULTRA-MD--WHATTSAPP-BOT* 🥀
+*🥀 Powered by Silva MD Bot & Silva Tech Inc 🥀*
+*Together, we build the future of automation! 🚀*
 `
 
 
