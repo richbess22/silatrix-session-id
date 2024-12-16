@@ -3,82 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Silva Tech Inc - Streamlined QR Code and Pairing Features">
+  <meta name="author" content="Silva Tech Inc">
+  <title>Silva Tech Inc - Tools</title>
   <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       display: flex;
-      flex-direction: column; /* Stack items vertically */
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
-      background-color: black; /* Set the background color to black */
+      background: linear-gradient(135deg, #121212, #1c1c1c);
+      color: #fff;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: #00A97F;
     }
 
     .btn {
-      --color: #00A97F;
-      --color2: rgb(10, 25, 30);
-      width: 200px; /* Set a fixed width for the buttons */
-      padding: 0.8em 1.75em;
-      background-color: transparent;
+      --primary-color: #00A97F;
+      --secondary-color: rgb(10, 25, 30);
+      width: 220px;
+      padding: 1em;
+      background: transparent;
       border-radius: 6px;
-      border: .3px solid var(--color);
-      transition: .5s;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      z-index: 1;
-      font-weight: 300;
-      font-size: 17px;
-      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      font-size: 16px;
+      font-weight: 500;
       text-transform: uppercase;
-      color: var(--color);
-      margin-bottom: 10px; /* Add margin to separate buttons */
+      letter-spacing: 0.5px;
+      margin: 10px 0;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.4s ease;
+      z-index: 1;
     }
 
     .btn::after, .btn::before {
       content: '';
-      display: block;
-      height: 100%;
-      width: 100%;
-      transform: skew(90deg) translate(-50%, -50%);
       position: absolute;
-      inset: 50%;
-      left: 25%;
+      inset: 0;
+      background: var(--primary-color);
       z-index: -1;
-      transition: .5s ease-out;
-      background-color: var(--color);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease-in-out;
     }
 
-    .btn::before {
-      top: -50%;
-      left: -25%;
-      transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
-    }
-
-    .btn:hover::before {
-      transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-    }
-
-    .btn:hover::after {
-      transform: skew(45deg) translate(-50%, -50%);
+    .btn::after {
+      transform-origin: right;
     }
 
     .btn:hover {
-      color: var(--color2);
+      color: var(--secondary-color);
+    }
+
+    .btn:hover::before {
+      transform: scaleX(1);
+    }
+
+    .btn:hover::after {
+      transform: scaleX(1);
     }
 
     .btn:active {
-      filter: brightness(.7);
-      transform: scale(.98);
+      transform: scale(0.98);
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .btn {
+        width: 100%;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <button onclick="window.open(`/qr`)" class="btn">qr code</button>
-  <button onclick="window.open(`/pair`)" class="btn">pair code</button>
-  <button onclick="window.open(`https://github.com/GlobalTechInfo`)" class="btn">github</button>
-  <button onclick="window.open(`https://whatsapp.com/channel/0029VagJIAr3bbVBCpEkAM07`)" class="btn">whatsapp</button>
-
+  <div class="container">
+    <h1>Silva Tech Tools</h1>
+    <button onclick="window.open('/qr', '_self')" class="btn">QR Code</button>
+    <button onclick="window.open('/pair', '_self')" class="btn">Pair Code</button>
+    <button onclick="window.open('https://github.com/SilvaTechB', '_blank')" class="btn">GitHub</button>
+    <button onclick="window.open('https://whatsapp.com/channel/0029VagJIAr3bbVBCpEkAM07', '_blank')" class="btn">WhatsApp</button>
+  </div>
 </body>
 </html>
