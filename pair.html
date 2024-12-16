@@ -13,8 +13,16 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background: linear-gradient(to bottom, #ffffff, #ebebeb);
       font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #4998FF, #ffffff 50%, #ebebeb 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .container {
@@ -27,14 +35,16 @@
     .box {
       width: 350px;
       padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
     }
 
     h1 {
       margin-bottom: 20px;
       color: #4998FF;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     .input-container {
