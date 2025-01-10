@@ -1,5 +1,5 @@
-# Use official Node.js image based on Alpine
-FROM node:alpine
+# Use official Node.js image
+FROM node:20-buster
 
 # Set the working directory inside the container
 WORKDIR /app
