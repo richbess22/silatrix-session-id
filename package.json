@@ -1,21 +1,24 @@
 {
-  "name": "web-qr",
-  "version": "0.0.1",
+  "name": "web-pair",
+  "version": "1.0.2",
   "type": "commonjs",
-  "description": "A multi-functional WhatsApp bot Web QR Scanner.",
+  "description": "A multi-functional WhatsApp bot Pairing Web and QR Scanner.",
   "main": "index.js",
+  "engines": {
+        "node": ">=20.0.0"
+  },
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name qasim",
-    "stop": "pm2 stop qasim",
-    "restart": "pm2 restart qasim",
+    "start": "pm2 start index.js --deep-monitoring --attach --name silva",
+    "stop": "pm2 stop silva",
+    "restart": "pm2 restart silva",
     "dev": "nodemon index.js"
   },
   "keywords": [
-    "baileysQr", "MdLogin", "Suhail-Md", "whatsapp-bot", "BotWhatsapp",
+    "baileysQr", "MdLogin", "SILVA-MD", "whatsapp-bot", "BotWhatsapp",
     "whatsappMdLogin", "adiwajshing/baileys", "baileys-md-qr", "multi-device-qr",
-    "md-qr", "bot-qr", "baileysQrScanner", "wabot"
+    "md-pair", "bot-pair", "baileysQrScanner", "botpairing", "WhatsAppPairing", "LinkDevice"
   ],
-  "author": "GlobalTechInfo",
+  "author": "SilvaTechB",
   "license": "MIT",
   "dependencies": {
     "@hapi/boom": "^10.0.1",
