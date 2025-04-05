@@ -17,13 +17,27 @@
       --card-bg: rgba(25, 25, 36, 0.95);
       --text: #f8f8ff;
       --text-muted: #b8b8d1;
-      --input-bg: rgba(255, 255, 255, 0.08);
+      --input-bg: rgba(255, 255, 255, 0.15);
+      --input-text: #ffffff;
       --success: #6ee7b7;
       --error: #fca5a5;
       --warning: #fcd34d;
       --border-color: rgba(0, 245, 212, 0.4);
       --glass-blur: 16px;
       --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="light"] {
+      --primary: #00b39b;
+      --primary-dark: #00897b;
+      --secondary: #f9fafb;
+      --background: #f3f4f6;
+      --card-bg: rgba(255, 255, 255, 0.98);
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --input-bg: rgba(0, 0, 0, 0.08);
+      --input-text: #1f2937;
+      --border-color: rgba(0, 179, 155, 0.4);
     }
 
     * {
@@ -46,21 +60,6 @@
         linear-gradient(to bottom right, #0a0a12, #12121d);
       background-attachment: fixed;
       transition: var(--transition);
-    }
-
-    [data-theme="light"] {
-      --primary: #00b39b;
-      --primary-dark: #00897b;
-      --secondary: #f9fafb;
-      --background: #f3f4f6;
-      --card-bg: rgba(255, 255, 255, 0.98);
-      --text: #1f2937;
-      --text-muted: #6b7280;
-      --input-bg: rgba(0, 0, 0, 0.05);
-      --border-color: rgba(0, 179, 155, 0.4);
-      --success: #10b981;
-      --error: #ef4444;
-      --warning: #f59e0b;
     }
 
     .container {
@@ -89,12 +88,6 @@
                   0 0 60px rgba(0, 245, 212, 0.2);
       transition: var(--transition);
       filter: drop-shadow(0 5px 15px rgba(0, 245, 212, 0.3));
-    }
-
-    .logo:hover {
-      transform: scale(1.05) rotate(5deg);
-      box-shadow: 0 0 40px rgba(0, 245, 212, 0.6), 
-                  0 0 80px rgba(0, 245, 212, 0.3);
     }
 
     .logo-glow {
@@ -137,11 +130,6 @@
       pointer-events: none;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 50px rgba(0, 245, 212, 0.3);
-    }
-
     h1 {
       margin-bottom: 1.2rem;
       background: linear-gradient(90deg, var(--primary), var(--primary-dark));
@@ -177,7 +165,7 @@
       background: var(--input-bg);
       border: 2px solid var(--border-color);
       border-radius: 14px;
-      color: var(--text);
+      color: var(--input-text);
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1rem;
       font-weight: 500;
@@ -214,7 +202,7 @@
       background: var(--input-bg);
       border: 2px solid var(--border-color);
       border-radius: 14px;
-      color: var(--text);
+      color: var(--input-text);
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1rem;
       font-weight: 500;
@@ -422,7 +410,6 @@
       transition: var(--transition);
     }
 
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -456,25 +443,6 @@
     .input-group { animation-delay: 0.4s !important; }
     .submit-btn { animation-delay: 0.5s !important; }
 
-    /* Particles background */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-      background: var(--primary);
-      border-radius: 50%;
-      opacity: 0.3;
-      animation: float 15s infinite ease-in-out;
-    }
-
     /* Responsive */
     @media (max-width: 600px) {
       .container {
@@ -506,36 +474,12 @@
         right: 15px;
       }
     }
-
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--background);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--primary);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--primary-dark);
-    }
   </style>
 </head>
 <body data-theme="dark">
-  <div class="particles" id="particles"></div>
-  
-  <button class="theme-toggle" id="theme-toggle">
-    <i class="fas fa-moon"></i>
-  </button>
-  
   <div class="container">
     <div class="logo-container">
-      <img src="https://i.imgur.com/RvEKtPJ.jpeg" alt="Silva Tech" class="logo">
+      <img src="https://telegra.ph/file/c2a4d8d65722553da4c89.jpg" alt="Silva Tech" class="logo">
       <div class="logo-glow"></div>
     </div>
     
@@ -544,7 +488,7 @@
       <p class="subtitle">Select your country and enter your WhatsApp number to generate your secure pairing code</p>
       
       <div class="input-group">
-       <select id="country-code" class="country-select">
+        <select id="country-code" class="country-select">
           <option value="">Select Country</option>
           <option value="93">Afghanistan (+93)</option>
           <option value="355">Albania (+355)</option>
@@ -796,9 +740,10 @@
       
       <button id="submit" class="submit-btn">
         <span id="btn-text">Generate Pair Code</span>
+        <span id="loading-spinner" style="display: none;"><i class="fas fa-spinner fa-spin"></i></span>
       </button>
       
-      <div id="result" class="result-container"></div>
+      <div id="pair" class="result-container"></div>
       
       <div class="action-buttons" id="action-buttons" style="display: none;">
         <button id="copy-code" class="action-btn copy-btn">
@@ -811,45 +756,44 @@
     </div>
   </div>
 
+  <button class="theme-toggle" id="theme-toggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
   <script>
-    // Theme Toggle
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-    // Check for saved theme or prefered scheme
-    const currentTheme = localStorage.getItem('theme') || 
-                       (prefersDarkScheme.matches ? 'dark' : 'light');
-    body.setAttribute('data-theme', currentTheme);
-    themeToggle.innerHTML = currentTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
 
     themeToggle.addEventListener('click', () => {
-      const isDarkMode = body.getAttribute('data-theme') === 'dark';
-      body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
-      themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-      localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
-      
-      // Update particles color when theme changes
-      createParticles();
+      const isLightMode = body.getAttribute('data-theme') === 'dark';
+      body.setAttribute('data-theme', isLightMode ? 'light' : 'dark');
+      themeToggle.innerHTML = isLightMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
     });
 
-    // Form Elements
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      body.setAttribute('data-theme', savedTheme);
+      themeToggle.innerHTML = savedTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    }
+
     const submitButton = document.getElementById('submit');
-    const btnText = document.getElementById('btn-text');
     const phoneNumberInput = document.getElementById('phone-number');
     const countryCodeSelect = document.getElementById('country-code');
-    const resultContainer = document.getElementById('result');
-    const actionButtons = document.getElementById('action-buttons');
+    const pairDiv = document.getElementById('pair');
     const copyCodeButton = document.getElementById('copy-code');
     const whatsappButton = document.getElementById('whatsapp-btn');
+    const actionButtons = document.getElementById('action-buttons');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const btnText = document.getElementById('btn-text');
 
-    // Submit Handler
-    submitButton.addEventListener('click', async () => {
+    submitButton.addEventListener('click', async (e) => {
+      e.preventDefault();
       const countryCode = countryCodeSelect.value;
-      const phoneNumber = phoneNumberInput.value.trim().replace(/[^0-9]/g, '');
-      
-      // Validate inputs
+      const phoneNumber = phoneNumberInput.value.replace(/[^0-9]/g, '');
+
       if (!countryCode) {
         showResult('Please select your country code', 'warning');
         countryCodeSelect.focus();
@@ -870,37 +814,39 @@
       // Show loading state
       submitButton.disabled = true;
       btnText.innerHTML = '<span class="loader"></span> Generating';
-      resultContainer.classList.remove('show');
+      pairDiv.classList.remove('show');
       actionButtons.style.display = 'none';
 
       try {
-        // Simulate API call with timeout
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
         const fullNumber = countryCode + phoneNumber;
-        // Generate a random 6-digit code
-        const code = Math.floor(100000 + Math.random() * 900000);
+        const response = await axios.get(`/code?number=${encodeURIComponent(fullNumber)}`);
         
-        showResult(`
-          <p>Your Silva Tech pairing code is:</p>
-          <div class="code-display">${code}</div>
-          <p>This code will expire in 5 minutes</p>
-        `, 'success');
-        
-        // Show action buttons
-        actionButtons.style.display = 'flex';
-        copyCodeButton.dataset.code = code;
-        whatsappButton.dataset.number = fullNumber;
+        if (response.data && response.data.code) {
+          const code = response.data.code;
+          showResult(`
+            <p>Your Silva Tech pairing code is:</p>
+            <div class="code-display">${code}</div>
+            <p>This code will expire in 5 minutes</p>
+          `, 'success');
+          
+          // Show action buttons
+          actionButtons.style.display = 'flex';
+          copyCodeButton.dataset.code = code;
+          whatsappButton.dataset.number = fullNumber;
+        } else {
+          showResult('Service unavailable. Please try again later.', 'error');
+        }
       } catch (error) {
         console.error('Error:', error);
-        showResult('An error occurred. Please try again later.', 'error');
+        const errorMsg = error.response?.data?.message || 
+                        'An error occurred. Please try again later.';
+        showResult(errorMsg, 'error');
       } finally {
         submitButton.disabled = false;
         btnText.textContent = 'Generate Pair Code';
       }
     });
 
-    // Copy Code Handler
     copyCodeButton.addEventListener('click', () => {
       const code = copyCodeButton.dataset.code;
       navigator.clipboard.writeText(code).then(() => {
@@ -908,8 +854,8 @@
         copyCodeButton.classList.add('copied');
         
         // Show confirmation in result container
-        const originalContent = resultContainer.innerHTML;
-        resultContainer.innerHTML = `
+        const originalContent = pairDiv.innerHTML;
+        pairDiv.innerHTML = `
           <p>Code copied to clipboard!</p>
           <div class="code-display">${code}</div>
         `;
@@ -917,7 +863,7 @@
         setTimeout(() => {
           copyCodeButton.innerHTML = '<i class="far fa-copy"></i> Copy Code';
           copyCodeButton.classList.remove('copied');
-          resultContainer.innerHTML = originalContent;
+          pairDiv.innerHTML = originalContent;
         }, 2000);
       }).catch(err => {
         console.error('Failed to copy:', err);
@@ -925,7 +871,6 @@
       });
     });
 
-    // WhatsApp Handler
     whatsappButton.addEventListener('click', () => {
       const number = whatsappButton.dataset.number;
       if (number) {
@@ -933,61 +878,17 @@
       }
     });
 
-    // Helper function to show results
     function showResult(message, type) {
-      resultContainer.innerHTML = message;
-      resultContainer.className = 'result-container show';
-      resultContainer.classList.add(type);
+      pairDiv.innerHTML = message;
+      pairDiv.className = 'result-container show';
+      pairDiv.classList.add(type);
       
       // Auto-scroll to result
-      resultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      pairDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    // Create floating particles
-    function createParticles() {
-      const particlesContainer = document.getElementById('particles');
-      particlesContainer.innerHTML = '';
-      
-      const particleCount = window.innerWidth < 600 ? 20 : 30;
-      const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary');
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Random properties
-        const size = Math.random() * 5 + 2;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const delay = Math.random() * 15;
-        const duration = 10 + Math.random() * 20;
-        
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}%`;
-        particle.style.top = `${posY}%`;
-        particle.style.background = primaryColor;
-        particle.style.opacity = Math.random() * 0.4 + 0.1;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.animationDuration = `${duration}s`;
-        
-        particlesContainer.appendChild(particle);
-      }
-    }
-
-    // Initialize particles and animations
-    window.addEventListener('load', () => {
-      createParticles();
-      
-      // Add pulse animation to logo on page load
-      document.querySelector('.logo').style.animation = 'pulse 2s ease-in-out 2';
-      
-      // Add subtle float animation to card
-      document.querySelector('.card').style.animation = 'float 8s ease-in-out infinite';
-    });
-
-    // Recreate particles on resize
-    window.addEventListener('resize', createParticles);
+    // Add pulse animation to logo on page load
+    document.querySelector('.logo').style.animation = 'pulse 2s ease-in-out 2';
   </script>
 </body>
 </html>
