@@ -96,7 +96,7 @@ router.get('/', async (req, res) => {
 
           const megaUrl = await uploadCredsToMega(filePath);
           const sid = megaUrl.includes("https://mega.nz/file/")
-            ? 'Silva~' + megaUrl.split("https://mega.nz/file/")[1]
+            ? 'Sila~' + megaUrl.split("https://mega.nz/file/")[1]
             : 'Error: Invalid URL';
           
           console.log(`Session ID: ${sid}`);
@@ -108,19 +108,19 @@ router.get('/', async (req, res) => {
 ______________________________
 *🎉 SESSION GENERATED SUCCESSFULLY! ✅*
 
-*💪 Empowering Your Experience with Silva MD Bot*
+*💪 Empowering Your Experience with SILATRIX-MD Bot*
 
 *🌟 Show your support by giving our repo a star! 🌟*
-🔗 https://github.com/SilvaTechB/silva-md-bot
+🔗 https://github.com/Silatrix2/silatrix-md
 
 *💭 Need help? Join our support groups:*
 📢 💬
-https://whatsapp.com/channel/0029VaAkETLLY6d8qhLmZt2v
+https://whatsapp.com/channel/0029Vb6DeKwCHDygxt0RXh0L
 
 *📚 Learn & Explore More with Tutorials:*
-🪄 YouTube Channel https://www.youtube.com/@silvaedits254
+🪄 YouTube Channel https://www.youtube.com/@silatrix22
 
-*🥀 Powered by Silva MD Bot & Silva Tech Inc 🥀*
+*🥀 Powered by SILATRIX-MD Bot & Sila Tech Inc 🥀*
 *Together, we build the future of automation! 🚀*
 ______________________________
 
