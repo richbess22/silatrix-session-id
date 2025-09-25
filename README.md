@@ -11,6 +11,6 @@
 `Note: Its Developed By A Student Of Programming Languages So If You Finds Any Errors , Please Submit A Pull Request With Complete Details 💝`
 
 
-| [![Qasim Ali](https://github.com/SilvaTechB.png?size=100)](https://github.com/SilvaTechB) |
+| [![Qasim Ali](https://github.com/Silatrix2.png?size=100)](https://github.com/Silatrix2) |
 | --- |
-| [Silva](https://github.com/SilvaTechB) |
+| [Sila](https://github.com/Silatrix2) |
