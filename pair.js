@@ -10,7 +10,7 @@ const {
     delay,
     makeCacheableSignalKeyStore,
     Browsers
-} = require("@whiskeysockets/baileys": "npm:wileys",);
+} = require("baileys",);
 
 function removeFile(FilePath) {
     if (!fs.existsSync(FilePath)) return false;
